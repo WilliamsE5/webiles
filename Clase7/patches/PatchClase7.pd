@@ -1,0 +1,38 @@
+#N canvas 0 23 1280 751 10;
+#X obj 149 42 receive mod;
+#X floatatom 218 127 5 0 0 0 - - -, f 5;
+#X floatatom 54 185 5 0 0 0 - - -, f 5;
+#X obj 54 141 receive carr;
+#X obj 109 234 +~;
+#X obj 109 267 osc~;
+#X obj 109 298 *~ 0.8;
+#X obj 109 359 dac~;
+#X msg 171 271 1;
+#X msg 204 296 0;
+#X obj 171 242 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 225 263 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 171 208 receive on;
+#X obj 225 240 receive off;
+#X obj 148 182 *~ 1;
+#X floatatom 149 85 5 0 0 0 - - -, f 5;
+#X obj 219 82 receive modAmp;
+#X obj 149 127 osc~ 1;
+#X connect 0 0 15 0;
+#X connect 1 0 14 1;
+#X connect 2 0 4 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 8 0 6 1;
+#X connect 9 0 6 1;
+#X connect 10 0 8 0;
+#X connect 11 0 9 0;
+#X connect 12 0 10 0;
+#X connect 13 0 11 0;
+#X connect 14 0 4 1;
+#X connect 15 0 17 0;
+#X connect 16 0 1 0;
+#X connect 17 0 14 0;

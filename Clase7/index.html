@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- LINK JS FILES -->
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/webpd-latest.min.js"></script>
+    <script src="js/p5.js"></script>
+    <script src="js/p5.sound.js"></script>
+    <script src="js/NexusUI.js"></script>
+    <script src="js/main.js"></script>
+    
+    
+    <!-- LINK CSS FILES -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <title>QWERTY PD Keyboard</title>
+
+</head>
+<body>
+
+    <h1>QWERTY PD Keyboard</h1>
+    <h2>Enjoy playing with your computer's keyboard or by pressing
+        the piano keyboard.</h2>
+    <h1 style="font-size: 15px;">Eduardo Williams Torio - A01338778.</h1>
+    <div id="piano" style="margin: 20px auto;"></div>
+    <div id="slider" style="margin: 20px auto;"></div>
+
+    <script>
+        
+        var slider = new Nexus.Slider('#slider',{
+            'size': [200,20],
+            'mode': 'relative',
+            'min': 0,
+            'max': 1,
+            'step': 0,
+            'value': 0.5
+        })
+
+        slider.on('change', function(v){
+            //console.log(v);
+            volumeChange(v);
+        })
+
+        var piano = new Nexus.Piano('#piano', {
+            'size': [1000, 250],
+            'mode': 'button',
+            'lowNote': 48,
+            'highNote': 72
+        });
+        
+        piano.on('change', function(v){
+            
+            //console.log(v);
+
+            if(v.state == false){
+                
+                noStroke();
+                background(240, 248, 255);
+                
+                envel.triggerRelease();
+            
+            }else{
+                
+                noStroke();
+                fill(0, 0, 139);
+                rect(20, 20, 60, 60, 60, 60);
+                
+                playSound(v.note);
+                envel.triggerAttack();
+                
+            }
+
+        });
+    
+    </script>
+</body>
+</html>
